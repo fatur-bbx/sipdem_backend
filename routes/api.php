@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::post('/', [AdminController::class, 'create']);
+    Route::get('/', [AdminController::class, 'index']);
+    Route::get('/{id}', [AdminController::class, 'show']);
+    Route::put('/{id}', [AdminController::class, 'update']);
+    Route::delete('/{id}', [AdminController::class, 'delete']);
+});
