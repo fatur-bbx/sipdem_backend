@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\DonasiController;
+use App\Http\Controllers\ArtikelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +44,12 @@ Route::group(['prefix' => 'donasi'], function () {
     Route::get('/{id}', [DonasiController::class, 'show']);
     Route::put('/{id}', [DonasiController::class, 'update']);
     Route::delete('/{id}', [DonasiController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'artikel'], function () {
+    Route::post('/', [ArtikelController::class, 'create']);
+    Route::get('/', [ArtikelController::class, 'index']);
+    Route::get('/{id}', [ArtikelController::class, 'show']);
+    Route::put('/{id}', [ArtikelController::class, 'update']);
+    Route::delete('/{id}', [ArtikelController::class, 'delete']);
 });
