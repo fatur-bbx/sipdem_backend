@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('status_donasi');
             $table->string('verifikasi');
 
-            $table->foreign('id_donatur')->references('id_donatur')->on('donatur');
-            $table->foreign('id_admin')->references('id_admin')->on('admin');
+            $table->foreign('id_donatur')->references('id_donatur')->on('donatur')->onDelete('cascade');
+            $table->foreign('id_admin')->references('id_admin')->on('admins')->onDelete('cascade');
             $table->timestamps();
         });
     }
