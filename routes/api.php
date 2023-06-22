@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\DonasiController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +53,12 @@ Route::group(['prefix' => 'artikel'], function () {
     Route::get('/{id}', [ArtikelController::class, 'show']);
     Route::put('/{id}', [ArtikelController::class, 'update']);
     Route::delete('/{id}', [ArtikelController::class, 'delete']);
+});
+
+Route::group(['prefix' => 'feedback'], function () {
+    Route::post('/', [FeedbackController::class, 'create']);
+    Route::get('/', [FeedbackController::class, 'index']);
+    Route::get('/{id}', [FeedbackController::class, 'show']);
+    Route::put('/{id}', [FeedbackController::class, 'update']);
+    Route::delete('/{id}', [FeedbackController::class, 'delete']);
 });
